@@ -2,7 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 
+import javax.print.DocFlavor.INPUT_STREAM;
 import javax.swing.JOptionPane;
 
 import org.eclipse.jface.window.Window;
@@ -28,14 +30,31 @@ public class Controller implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if (vista.getBtn_login().getText() =="" ) {
+		System.out.println("Confirmada la pulsa");
+		
+		if (vista.getText_email().getText().equals("") || vista.getPwdPass().getPassword().length==0) {			
 			
-			JOptionPane.showInputDialog("Rellenar usuario");
+			JOptionPane.showMessageDialog(null, "No puede dejar en blanco correo o password","Login incorrecto", 0);
+			
 		}
+		
+		else {
+			
+			model.setPasswordComprobar(vista.getPwdPass().getPassword());
+			model.setUsuarioComprobar(vista.getText_email().getText());
+			
+			if (model.getIdentity()) { System.out.println("Identidad asegurada");}
+			
+		}
+		
+		}
+		
+	
+		
 		
 	}
 	
-	
+		
 
 
-}
+

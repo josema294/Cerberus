@@ -1,24 +1,56 @@
 package model;
 
-import java.awt.EventQueue;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import view.Login;
+import java.util.Arrays;
 
 public class Model{
 	
-	private String usuario = "jose_ma294@hotmail.com";
-	private String password = "123";
+	
+	private String usuario = "jose";
+	private char [] password = {'1','2','3'};	
+	private String usuarioComprobar;	
+	private char [] passwordComprobar;
+	
+	public void setUsuarioComprobar(String usuarioComprobar) {
+		this.usuarioComprobar = usuarioComprobar;
+	}
+	public void setPasswordComprobar(char[] passwordComprobar) {
+		this.passwordComprobar = passwordComprobar;
+	}
 	
 	
-	public String getPassword() {
-		return password;
+	public boolean getIdentity () {
+		
+		if (checkUsuario() && checkPass()) return true;
+		
+		else return false;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	
+	
+	private boolean checkUsuario() {
+		
+		if (usuario.equals(usuarioComprobar)) {
+					
+			return true;
+			
+		}
+		return false;
+		
 	}
+	
+	private boolean checkPass () {
+		
+		if(Arrays.equals(password,passwordComprobar)) {return true;}
+		else return false;	
+			}
+			
+			
+			
+		}
+		
+	
 
 
-}
+
+
+
+
